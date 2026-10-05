@@ -1,0 +1,58 @@
+:root{--bg:#f1f5f9;--card:#fff;--text:#1e293b;--muted:#64748b;--line:#e2e8f0;--accent:#0ea5e9;--on-accent:#04202e}
+@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--line:#334155;--accent:#38bdf8}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI","PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif;line-height:1.6;padding:24px 16px 48px}
+.wrap{max-width:820px;margin:0 auto}
+h1{text-align:center;margin:12px 0 16px}
+h2{margin:32px 0 12px;font-size:1.25rem}
+.center{text-align:center}
+[hidden]{display:none!important}
+
+/* buttons */
+button{border:0;border-radius:999px;padding:10px 24px;background:var(--accent);color:var(--on-accent);font:inherit;font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.08)}
+button.ghost{background:transparent;color:var(--text);border:1px solid var(--line);font-weight:600}
+button.big{font-size:1.05rem;padding:12px 30px}
+button:disabled{opacity:.45;cursor:not-allowed}
+
+/* 1. select courses */
+.steps{max-width:480px;margin:0 auto 18px;padding-left:1.4em;color:var(--muted);font-size:.95rem}
+.picklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.pick{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border:2px solid var(--line);border-radius:12px;cursor:pointer;font-weight:600}
+.pick:hover{border-color:var(--accent)}
+.pick.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--card))}
+.pick input{width:20px;height:20px;margin:0;flex:none;accent-color:var(--accent)}
+.startbar{position:sticky;bottom:0;z-index:6;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px;padding:12px 16px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+#info{color:var(--muted)}
+
+/* 2. quiz */
+.quizbar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;gap:12px;padding:10px 14px;margin:8px 0 12px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;margin:0 0 14px;min-width:0}
+.qcard legend{padding:0}
+.tag{margin:0 0 4px;font-size:.8rem;color:var(--muted)}
+.qtext{margin:0 0 10px;font-weight:700}
+.qtext .qn{margin-right:6px}
+.qn,.an{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:22px;padding:0 6px;border-radius:6px;font-size:.75rem;font-weight:800}
+.qn{background:var(--accent);color:var(--on-accent)}
+.an{background:#22c55e;color:#052e16;margin-top:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;margin:6px 0;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt input{margin-top:5px;accent-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.ol{flex:none;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--line);font-size:.8rem;font-weight:800}
+.opt .tags{margin-left:auto;display:flex;gap:10px;flex:none}
+.opt em{font-style:normal;font-size:.75rem;font-weight:700;color:#16a34a}
+.opt em.you{color:var(--accent)}
+
+/* 3. result */
+.score{text-align:center;border-radius:16px;padding:24px;margin:16px 0;background:var(--card);border:2px solid var(--accent)}
+.big-num{font-size:4rem;font-weight:800;line-height:1.1}
+.big-num small{font-size:1.8rem;font-weight:600;color:var(--muted)}
+.review.ok{border-left:6px solid #22c55e}
+.review.bad{border-left:6px solid #ef4444}
+.review .opt{cursor:default}
+.review .opt:hover{border-color:var(--line)}
+.review .opt.right{border-color:#22c55e;background:color-mix(in srgb,#22c55e 14%,transparent)}
+.review .opt.wrong{border-color:#ef4444;background:color-mix(in srgb,#ef4444 12%,transparent)}
+.ans{display:flex;gap:10px;margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--bg)}
+.ans p{margin:0}
